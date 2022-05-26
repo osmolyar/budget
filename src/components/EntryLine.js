@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Icon, Segment } from 'semantic-ui-react'
 
-function EntryLine({textAlign, columns, description, value, isExpense=false}) {
+function EntryLine({textAlign="right", columns="3", description, value, isExpense=false}) {
     return (
         <Segment color={isExpense? 'red' : 'green'}>
         <Grid columns={columns} textAlign={textAlign}>
