@@ -4,6 +4,8 @@ import ButtonSaveOrCancel from './ButtonSaveOrCancel';
 
 
 function NewEntryForm() {
+
+
     return (
         <Form unstackable>
         <Form.Group>
