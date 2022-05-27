@@ -36,7 +36,7 @@ function NewEntryForm({addEntry}) {
           <Checkbox toggle label= 'is expense' checked={isExpense} onChange={()=> setIsExpense(oldState => !oldState)}/>
 
         </Segment>
-        <ButtonSaveOrCancel addEntry={addEntry} description={description} value={value}/>
+        <ButtonSaveOrCancel addEntry={addEntry} description={description} value={value} isExpense={isExpense}/>
       </Form>
     )
 }
