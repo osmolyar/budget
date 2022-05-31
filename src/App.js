@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {  Container} from 'semantic-ui-react';
 import './App.css';
+import DisplayBalance from './components/DisplayBalance';
 import DisplayBalances from './components/DisplayBalances';
 import EntryLines from './components/EntryLines';
 
@@ -16,6 +17,9 @@ function App() {
   const [isExpense, setIsExpense] = useState(true);
   const [isOpen, setIsOpen] = useState(false)
   const [entryId, setEntryId] = useState();
+  const [incomeTotal, setIncomeTotal] = useState(0);
+  const [expenseTotal, setExpenseTotal] = useState(0);
+  const [total, setTotal] = useState();
 
   useEffect(() => {
     if(!isOpen && entryId) {
@@ -29,6 +33,23 @@ function App() {
     }
   },[isOpen])
 
+  useEffect(() =>
+  {
+    let totalIncomes = 0
+    let totalExpenses=0;
+    entries.map(entry=> {
+      if(entry.isExpense) {
+        return totalExpenses += Number(entry.value)
+      } 
+      return totalIncomes +=Number(entry.value)
+    })
+    setTotal(totalIncomes - totalExpenses)
+    setExpenseTotal(totalExpenses)
+    setIncomeTotal(totalIncomes)
+    console.log(`total income is: ${totalIncomes}`)
+    console.log(`total expense is: ${totalExpenses}`)
+  },[entries])
+
       // const deleteEntry = (id) => { }
       function deleteEntry(id) {
         const result = entries.filter(entry => entry.id !== id)
@@ -38,7 +59,7 @@ function App() {
     function editEntry(id) {
       console.log('edit entry with id ', id)
       if (id) {
-        const index = entries.findIndex(entry => entry.id == id)
+        const index = entries.findIndex(entry => entry.id === id)
         const entry = entries[index]
         setEntryId(id)
         setDescription(entry.description)
@@ -67,8 +88,9 @@ function App() {
   return (
    <Container>
      <MainHeader title='Budget' />
+     <DisplayBalance label='Your Balance:' value={total} size='small'/>
 
-     <DisplayBalances />
+     <DisplayBalances incomeTotal={incomeTotal} expenseTotal={expenseTotal}/>
      
      <MainHeader title="History" type="h2" />
      <EntryLines entries={entries} deleteEntry={deleteEntry} editEntry={editEntry} />
@@ -101,25 +123,25 @@ export default App;
 var initialEntries = [
   { id:1,
     description : "Work income",
-    value: "1000.00",
+    value: 1000.00,
     isExpense: false
   },
   { 
     id: 2,
     description : "Water bill",
-    value: "20.00",
+    value: 20.00,
     isExpense: true
   },
   {
     id: 3,
     description : "Rent",
-    value: "300.00",
+    value: 300.00,
     isExpense: true
   },
   {
     id: 4,
     description : "Power bill",
-    value: "50.00",
+    value: 50.00,
     isExpense: true
   },
 ]
