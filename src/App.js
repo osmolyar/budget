@@ -31,6 +31,7 @@ function App() {
       setEntries(newEntries)
       resetEntry()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isOpen])
 
   useEffect(() =>
@@ -46,8 +47,6 @@ function App() {
     setTotal(totalIncomes - totalExpenses)
     setExpenseTotal(totalExpenses)
     setIncomeTotal(totalIncomes)
-    console.log(`total income is: ${totalIncomes}`)
-    console.log(`total expense is: ${totalExpenses}`)
   },[entries])
 
       // const deleteEntry = (id) => { }
