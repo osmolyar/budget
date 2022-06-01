@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux'
 import { removeEntryRedux } from '../actions/entries.actions'
 import { openEditModal } from '../actions/modals.actions'
 
-function EntryLine( {id, textAlign="right", columns="3", description, value, isExpense=false, editEntry}) {
+function EntryLine( {id, textAlign="right", columns="3", description, value, isExpense=false}) {
 
   const defaultOptions = {
     significantDigits: 2,

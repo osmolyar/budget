@@ -4,7 +4,6 @@ const reducer = (state = {isOpen: false}, action) => {
             return {...state, isOpen : true, id : action.payload.id}
         case 'CLOSE_EDIT_MODAL':
             return {...state, isOpen: false, id : null}
-        break;
         default:
             return state;
     }
