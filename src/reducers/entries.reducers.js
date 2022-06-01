@@ -13,10 +13,10 @@ const reducer = (state = initialEntries, action) => {
   }
 
   export default reducer;
-  
+
   var initialEntries = [
     { id:1,
-      description : "Work income",
+      description : "Work income ",
       value: 1000.00,
       isExpense: false
     },
