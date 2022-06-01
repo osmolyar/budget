@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {  Container} from 'semantic-ui-react';
+import {  Container, ModalDescription} from 'semantic-ui-react';
 import './App.css';
 import DisplayBalance from './components/DisplayBalance';
 import DisplayBalances from './components/DisplayBalances';
@@ -20,6 +20,7 @@ function App() {
   const [expenseTotal, setExpenseTotal] = useState(0);
   const [total, setTotal] = useState();
   const entries = useSelector(state => state.entries)
+  const isOpenRedux = useSelector(state => state.modals.isOpen)
 
   useEffect(() => {
     if(!isOpen && entryId) {
@@ -101,7 +102,7 @@ function App() {
                 setValue={setValue} 
                 setIsExpense={setIsExpense}
                 />
-      <ModalEdit   isOpen={isOpen} setIsOpen={setIsOpen}
+      <ModalEdit   isOpen={isOpenRedux} setIsOpen={setIsOpen}
             addEntry={addEntry}
             description={description} 
             value={value} 

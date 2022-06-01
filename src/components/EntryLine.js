@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import {  Grid, Icon, Segment } from 'semantic-ui-react'
 import {useDispatch} from 'react-redux'
 import { removeEntryRedux } from '../actions/entries.actions'
+import { openEditModal } from '../actions/modals.actions'
 
 function EntryLine( {id, textAlign="right", columns="3", description, value, isExpense=false, editEntry}) {
 
@@ -34,7 +35,11 @@ function EntryLine( {id, textAlign="right", columns="3", description, value, isE
             <Grid.Column width={10} textAlign="left">{description}</Grid.Column>
             <Grid.Column width={3} textAlign="right">{currencyFormatter(value,defaultOptions)}</Grid.Column>
             <Grid.Column width={3}>
-              <Icon name="edit" bordered onClick={()=>editEntry(id)}/>
+              <Icon 
+                name="edit" 
+                bordered 
+                onClick={()=>dispatch(openEditModal(id))}
+              />
               <Icon 
                 name='trash' 
                 bordered 
