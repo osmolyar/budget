@@ -13,7 +13,7 @@ function EntryLine( {id, textAlign="right", columns="3", description, value, isE
   }
   
   const currencyFormatter = (value, options) => {
-    if (typeof value !== 'number') value = 0.0
+    if (typeof value !== 'number') value = Number(value)
     options = { ...defaultOptions, ...options }
     value = value.toFixed(options.significantDigits)
   
