@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { Button, Modal } from 'semantic-ui-react'
+import { updateEntryRedux } from '../actions/entries.actions';
 import { closeEditModal } from '../actions/modals.actions';
 import useEntryDetails from '../hooks/useEntryDetails';
 import EntryForm from './EntryForm'
@@ -9,7 +10,8 @@ function ModalEdit({
     isOpen, 
     description,
     value,
-    isExpense
+    isExpense,
+    id
 }) {
 
     const dispatch = useDispatch();
@@ -30,7 +32,7 @@ function ModalEdit({
             </Modal.Content>
             <Modal.Actions>
                 <Button onClick={()=> dispatch(closeEditModal())}>Close</Button>
-                <Button onClick={() => dispatch(closeEditModal())} primary>Ok</Button>
+                <Button onClick={() => entryUpdate.updateEntry(id)} primary>Ok</Button>
             </Modal.Actions>
         </Modal>
     )
