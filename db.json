@@ -19,6 +19,10 @@
     {
       "id": "18ead719-4de0-48ee-9c1f-b5c290e534de",
       "description": "reterte"
+    },
+    {
+      "id": "cbc2e9e4-adc0-470c-9f51-4ff9d9177ef9",
+      "description": "new item"
     }
   ],
   "values": [
@@ -46,6 +50,11 @@
       "id": "18ead719-4de0-48ee-9c1f-b5c290e534de",
       "isExpense": true,
       "value": "434"
+    },
+    {
+      "id": "cbc2e9e4-adc0-470c-9f51-4ff9d9177ef9",
+      "isExpense": true,
+      "value": "6"
     }
   ]
 }

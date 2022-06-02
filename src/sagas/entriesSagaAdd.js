@@ -7,9 +7,9 @@ export function* addEntrySaga() {
 }
 
  function* addEntryToDb({payload}) {
-    console.log('add entry',payload)
     yield call(addEntry, payload)
     yield call(addEntryDetails, payload)
+    yield put({type: entriesTypes.ADD_ENTRY_RESULT, payload})
 }
 async function addEntry({id, description}) {
     await axios.post('http://localhost:3001/entries',{
