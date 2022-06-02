@@ -1,8 +1,11 @@
+import { ActionTypes } from 'redux-devtools';
 import entriesTypes from '../actions/entries.actions'
 
 const reducer = (state = initialEntries, action) => {
     let newEntries;
     switch(action.type) {
+      case entriesTypes.POPULATE_ENTRIES:
+          return action.payload;
       case entriesTypes.ADD_ENTRY:
         newEntries = state.concat( {...action.payload})
         return newEntries;
