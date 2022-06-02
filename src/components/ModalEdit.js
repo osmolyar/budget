@@ -1,7 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { Button, Modal } from 'semantic-ui-react'
-import { updateEntryRedux } from '../actions/entries.actions';
 import { closeEditModal } from '../actions/modals.actions';
 import useEntryDetails from '../hooks/useEntryDetails';
 import EntryForm from './EntryForm'

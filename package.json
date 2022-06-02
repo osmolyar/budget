@@ -1,5 +1,13 @@
 {
   "name": "budget",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "backend": "json-server --watch db.json --port 3001",
+    "start:all": "concurrently \"yarn start\" \"yarn backend\""
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,14 +26,6 @@
     "semantic-ui-react": "^2.0.1",
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "backend": "json-server --watch db.json --port 3001",
-    "start:all": "concurrently \"yarn start\" \"yarn backend\""
   },
   "eslintConfig": {
     "extends": [
