@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react';
-import {  Container} from 'semantic-ui-react';
 import './App.css';
-import DisplayBalance from './components/DisplayBalance';
-import DisplayBalances from './components/DisplayBalances';
-import EntryLines from './components/EntryLines';
-
-import MainHeader from './components/MainHeader';
-import ModalEdit from './components/ModalEdit';
-import NewEntryForm from './components/NewEntryForm';
+import DisplayContainer from './components/DisplayContainer';
 import {useDispatch, useSelector} from 'react-redux'
 import { getAllEntries } from './actions/entries.actions';
 
@@ -49,24 +42,8 @@ function App() {
  }, [dispatch])
 
   return (
-   <Container>
-     <MainHeader title='Budget' />
-     <DisplayBalance label='Your Balance:' value={total} size='small'/>
-
-     <DisplayBalances incomeTotal={incomeTotal} expenseTotal={expenseTotal}/>
-     
-     <MainHeader title="History" type="h2" />
-     <EntryLines 
-      entries={entries} 
-      />
-  
-      <MainHeader title="Add new transaction" type="h3" />
-      <NewEntryForm  />
-      <ModalEdit   
-        isOpen={isOpen}
-        {...entry}
-      ></ModalEdit>
-   </Container>
+   <DisplayContainer total={total} incomeTotal={incomeTotal} expenseTotal = {expenseTotal} isOpen= {isOpen} entries={entries} entry={entry} />
+    
   );
 }
 
