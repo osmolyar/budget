@@ -117,4 +117,4 @@ const mapDispatchToProps = dispatch => {
     getAllEntries: () => dispatch(getAllEntries())
   }
 }
-export default connect(mapStateToProps)(DisplayContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayContainer)
