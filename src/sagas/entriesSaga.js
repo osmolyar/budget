@@ -1,7 +1,6 @@
 import {take, put, call, fork} from 'redux-saga/effects'
 import entriesTypes, { populateEntries, populateEntryDetails } from '../actions/entries.actions'
 import axios from 'axios'
-import types from '../actions/entries.actions'
 import {} from '..'
 
 export function* getAllEntries() {

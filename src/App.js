@@ -1,12 +1,15 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
 import './App.css';
 import DisplayContainer from './components/DisplayContainer';
 
-function App() {
-
-  return (
-   <DisplayContainer  />
-    
-  );
+class App extends Component {
+  render() {
+    return (
+      <DisplayContainer  />
+    );
+  }
 }
 
-export default App;
+export default connect((props) => (props), {
+})(App);
